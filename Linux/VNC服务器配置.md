@@ -9,12 +9,12 @@
 
     编辑/etc/sysconfig/vncservers，加入
     ```
-    VNCSERVERS="8:zealoussnow"
+    VNCSERVERS="8:test"
     VNCSERVERARGS[8]="-geometry 1400x900 -nolisten tcp"
     ```
-    添加的用户zealoussnow必须是系统中已经存在的用户。
+    添加的用户test必须是系统中已经存在的用户。
 
-* 3.为zealoussnow设置vnc的登录密码
+* 3.为test设置vnc的登录密码
 
     切换到普通用户上，使用vncpasswd设置密码
 
