@@ -1,4 +1,4 @@
-## CentOS-6.5安装和配置VNC服务
+#### CentOS-6.5安装和配置VNC服务
 
 * 1.下载tigervnc的客户端和服务端程序
 
