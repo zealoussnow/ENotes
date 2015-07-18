@@ -23,6 +23,10 @@ Settings-User中加入：
 	
 保存后自动启用了markdown文件的语法高亮功能了。
 
+#### 3. 启用vim快捷键
+
+在Settings-User中将`ignored_packages":["Vintage"]`中的Vintage去除，保存后就可以使用vim的快捷键了。
+
 #### 附件-配置备份
 
 	{
