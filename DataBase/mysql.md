@@ -65,7 +65,7 @@
 	
 * 查询当前时间	
 		
-		SELECT NOW();
+		SELECT NOW();或SELECT CURRENT_TIME();
 	
 * 查询当前日期	
 		
