@@ -45,6 +45,7 @@ python引入的与生成器相关的最后一个特性是提供了与next方法�
 yield将变成一个表达式，而一个值可以通过一个send函数来传递。
 
 如：
+
 	def psychologist():
 		print 'Please input OK'
     	while True:
