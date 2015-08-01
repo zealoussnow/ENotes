@@ -151,6 +151,8 @@
 * 为了存储过程能够正常执行，我们需要把命令执行的结束符修改下，默认的为分号
 
 		delimeter $$ #修改为两个$$
+
 * 亚元表(dual)
 
 		select rand_string from dual;
+		
