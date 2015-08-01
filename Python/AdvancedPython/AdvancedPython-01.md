@@ -175,9 +175,38 @@ islice将返回一个运行在序列的子分组之上的迭代器
 
 ##### (3). groupby: uniq迭代器
 
+类似于unix命令uiq，它可以对来自一个迭代器的重复元素进行分组。
+groupby的一个应用实例是使用RLE来压缩数据，
+如：
+
+	from itertools import groupby
+
+	def compress(data):
+    	return ((len(list(group)), name) for name, group in groupby(data))
+
+	def decompress(data):
+    	return (car * size for size, car in data)
+
+	>>> list(compress('get uuuuuup'))
+	[(1, 'g'), (1, 'e'), (1, 't'), (1, ' '), (6, 'u'), (1, 'p')]
+	>>> compressed = compress('get uuuuuup')
+	>>> ''.join(decompress(compressed))
+	'get uuuuuup'
+
+每当需要在数据上完成一个摘要的时候，都可以使用groupby。这时候内建的sorted函数
+就非常有用，可以使传入的数据中相似的元素相邻。
+
 ##### (4). 其它函数
 
-### 三、
+- [itertools函数完整列表](https://docs.python.org/2/library/itertools.html)
+
+### 三、装饰器
+
+装饰器原始的使用场景是可以将方法在定义的首部将其定义为类方法或静态方法。
+
+
+
+### 四、with和contextlib
 
 ### 参考文档
 
