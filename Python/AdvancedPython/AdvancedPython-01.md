@@ -202,14 +202,90 @@ groupby的一个应用实例是使用RLE来压缩数据，
 
 ### 三、装饰器
 
-装饰器原始的使用场景是可以将方法在定义的首部将其定义为类方法或静态方法。
+装饰器原始的使用场景是可以将方法在定义的首部将其定义为类方法或静态方法。使用了装饰器以后，其语法更加浅显易懂。
 
+#### (1). 如何编写装饰器
 
+* 最简单和最容易理解的方法是编写一个函数，返回封装原始函数调用的一个子函数
+
+##### 常见的装饰器模式包括：
+
+* 参数检查
+
+	检查函数接收或返回的参数，在特定上下文执行时可能有用。例如，如果一个函数通过XML-RPC调用，python将
+	不能和静态类型语言中一样直接提供它的完整签名。当XML-RPC客户要求函数签名时，就需要这个功能来提供内
+	省能力。
+
+* 缓存
+
+	TODO
+
+* 代理
+
+	TODO
+
+* 上下文提供者
+
+	上下文装饰器用来确保函数可以运行在正确的上下文中，或者在函数前后执行一些代码。换句话说，它可以用来
+	设置或复位特定的执行环境。
+
+	如：当一个数据项必须与其他线程共享时，就需要用一个锁来确保它在多重访问时得到保护。这个锁可以在装饰
+	器中编写，示例如下：
+
+		from threading import RLock
+		lock = RLock()
+		def synchronized(function):
+    		def _synchronized(*args, **kw):
+        	lock.acquire()
+        	try:
+            	return function(*args, **kw)
+        	finally:
+            	lock.release()
+    	return _synchronized
+
+		@locker
+		def thread_safe():
+    		pass
+
+	上下文装饰器可以使用with语句来替代，创造这条语句的作用是使try...finally模式更加流畅，在某些情况下，
+	它覆盖了上下文装饰器的使用场景。
+
+- [python装饰器学习](http://www.cnblogs.com/rhcad/archive/2011/12/21/2295507.html)
 
 ### 四、with和contextlib
+
+对于要确保即使发生一个错误时也能运行一些清理代码而言，try...finally语句是很有用的，例如：
+
+* 关闭一个文件
+
+* 释放一个锁
+
+* 创建一个临时的代码补丁
+
+* 在特殊环境中运行受保护的代码
+
+with语句覆盖了这些使用场景，为在一个代码块前后调用一些代码提供了一种简单的方法
+
+如：
+
+	def readfile():
+    with file('/etc/hosts') as source_file:
+        for line in source_file:
+            if line.startswith('#'):
+                continue
+            print line
+
+##### contextlib模块
+
+未来给with语句提供一些辅助类，标准程序库中添加了一个模块。最有用的辅助类是contextmanager，这是一个
+装饰器，它增强了包含以yield语句分开的\_\_enter\_\_和\_\_exit\_\_两部分的生成器。
 
 ### 参考文档
 
 - [Python在线教程](https://docs.python.org/2/tutorial/)
 
 - [样式指南](http://www.python.org/dev/peps/pep-0008)
+
+<hr>
+
+[下一章：语法的最佳实践-类级](./AdvancedPyhon-02.md)
