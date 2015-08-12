@@ -151,3 +151,9 @@
 ## Chrome开源
 
 [中山大学 zhchbin](https://github.com/zhchbin)
+
+## 程序开发
+
+[OpenGL教程](http://opengl.zilongshanren.com/content/)
+
+[SDL教程](http://tjumyk.github.io/sdl-tutorial-cn/contents.html)
