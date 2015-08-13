@@ -157,3 +157,16 @@
 [OpenGL教程](http://opengl.zilongshanren.com/content/)
 
 [SDL教程](http://tjumyk.github.io/sdl-tutorial-cn/contents.html)
+
+[使用Python监控文件变化](http://segmentfault.com/q/1010000000145373)
+
+## Windows程序开发
+
+[VS2005、VS2008、VS2010、VS2012解决方案和工程项目文件转换方法](http://blog.xieyc.com/
+vs2005-2012-solution-and-project-convertion/)
+
+[Windows Shell编程](http://www.cnblogs.com/lemony/archive/2008/09/01/1280925.html)
+
+## Foobar定制开发
+
+[配置Foobar界面](http://cacrnus.lofter.com/post/42c295_17c53ec)
