@@ -170,3 +170,5 @@ vs2005-2012-solution-and-project-convertion/)
 ## Foobar定制开发
 
 [配置Foobar界面](http://cacrnus.lofter.com/post/42c295_17c53ec)
+
+[bash命令搜索机制](http://www.178linux.com/archives/3264)
