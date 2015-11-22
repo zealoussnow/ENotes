@@ -145,7 +145,7 @@ islice将返回一个运行在序列的子分组之上的迭代器
 
 如：
 	
-	```python
+```python
 	def starting_at_five():
     value = raw_input().strip()
     while value != '':
@@ -159,7 +159,7 @@ islice将返回一个运行在序列的子分组之上的迭代器
 	'five'
 	>>> iter.next()
 	'six'
-	```
+```
 
 当需要抽取位于流中特定位置的数据时，都可以使用islice。
 
@@ -172,7 +172,7 @@ islice将返回一个运行在序列的子分组之上的迭代器
 
 如：
 	
-	```python
+```python
 	def with_head(iterable, headsize = 1):
 		a, b = itertools.tee(iterable)
     	return list(itertools.islice(a, headsize)), b
@@ -185,7 +185,7 @@ islice将返回一个运行在序列的子分组之上的迭代器
 	([1, 2, 3], <itertools.tee object at 0xb82a28>)
 	>>> with_head(seq, 4)
 	([1, 2, 3, 4], <itertools.tee object at 0xb82ab8>)
-	```
+```
 
 ##### (3). groupby: uniq迭代器
 
@@ -193,7 +193,7 @@ islice将返回一个运行在序列的子分组之上的迭代器
 groupby的一个应用实例是使用RLE来压缩数据，
 如：
 
-	```python
+```python
 	from itertools import groupby
 
 	def compress(data):
@@ -207,7 +207,7 @@ groupby的一个应用实例是使用RLE来压缩数据，
 	>>> compressed = compress('get uuuuuup')
 	>>> ''.join(decompress(compressed))
 	'get uuuuuup'
-	```
+```
 
 每当需要在数据上完成一个摘要的时候，都可以使用groupby。这时候内建的sorted函数
 就非常有用，可以使传入的数据中相似的元素相邻。
@@ -248,7 +248,7 @@ groupby的一个应用实例是使用RLE来压缩数据，
 	如：当一个数据项必须与其他线程共享时，就需要用一个锁来确保它在多重访问时得到保护。这个锁可以在装饰
 	器中编写，示例如下：
 
-		```python
+```python
 		from threading import RLock
 		lock = RLock()
 		def synchronized(function):
@@ -263,7 +263,7 @@ groupby的一个应用实例是使用RLE来压缩数据，
 		@locker
 		def thread_safe():
     		pass
-		```
+```
 
 	上下文装饰器可以使用with语句来替代，创造这条语句的作用是使try...finally模式更加流畅，在某些情况下，
 	它覆盖了上下文装饰器的使用场景。
@@ -286,14 +286,14 @@ with语句覆盖了这些使用场景，为在一个代码块前后调用一些�
 
 如：
 	
-	```python
+```python
 	def readfile():
     with file('/etc/hosts') as source_file:
         for line in source_file:
             if line.startswith('#'):
                 continue
             print line
-	```
+```
 
 ##### contextlib模块
 
