@@ -75,6 +75,7 @@ http和evdns：是基于libevent实现的http服务器和异步dns查询库
 
 典型的Reactor声明方式，反应器时事件管理的接口
 
+```cpp
     class Reactor {
     public:
         int register_handler(EventHandler *handler, int event);
@@ -82,9 +83,11 @@ http和evdns：是基于libevent实现的http服务器和异步dns查询库
         void handle_events(timeval *tv);
         // ...
     }
+```
 
 在libevent中就是event\_base结构体, event\_base是一组event的集合
 
+```c
     /* event-internal.h */
     struct event_base {
     	/** Function pointers and other data to describe this event_base's
@@ -211,12 +214,14 @@ http和evdns：是基于libevent实现的http服务器和异步dns查询库
     	/** A function used to wake up the main thread from another thread. */
     	int (*th_notify_fn)(struct event_base *base);
     };
+```
 
 ### EventHandler --- 事件处理程序
 
 event是整个libevent库的核心，是Reactor框架中的事件处理程序组件，它提供了函数接口，供Reactor在事件发生时
 调用，以执行相应的事件处理，通常它会绑定一个有效的句柄。
 
+```c
     /* include/event2/event_struct.h */
     struct event {
         TAILQ_ENTRY(event) ev_active_next;
@@ -257,9 +262,11 @@ event是整个libevent库的核心，是Reactor框架中的事件处理程序组
         void (*ev_callback)(evutil_socket_t, short, void *arg);
         void *ev_arg;
     };
+```
 
 宏展开后为：
 
+```c
     struct event {
         struct { struct event *tqe_next; struct event **tqe_prev; } ev_active_next;
         struct { struct event *tqe_next; struct event **tqe_prev; } ev_next;
@@ -299,9 +306,11 @@ event是整个libevent库的核心，是Reactor框架中的事件处理程序组
         void (*ev_callback)(int, short, void *arg);
         void *ev_arg;
     };
+```
 
 ### Signal
 
+```c
     struct evsig_info {
         /* Event watching ev_signal_pair[1] */
         struct event ev_signal;
@@ -322,12 +331,14 @@ event是整个libevent库的核心，是Reactor框架中的事件处理程序组
         /* Size of sh_old. */
         int sh_old_max;
     };
+```
 
 ### event_list
 
 ev_map.c中的evmap_io中用到了event_list结构，event_list在event_struct.h
 的结构是:
 
+```c
     TAILQ_HEAD (event_list, event);
     #ifndef TAILQ_HEAD
     #define _EVENT_DEFINED_TQHEAD
@@ -337,11 +348,14 @@ ev_map.c中的evmap_io中用到了event_list结构，event_list在event_struct.h
         struct type **tqh_last;         \
     }
     #endif
+```
 
 使用cpp或者gcc -E展开后得到的结果：
 
+```c
     struct event_list
     {
         struct event *tqh_first;
         struct event **tqh_last;
     };
+```

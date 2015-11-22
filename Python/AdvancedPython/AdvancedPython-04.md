@@ -6,8 +6,10 @@
 
 setup.py模板：
 
+```python
 	from setuptools import setup
 	setup(name='tools.name')
+```
 
 name给出了egg的全名，由此，该脚本提供多个命令，可以使用--help-commands选项列出这些
 命令。
@@ -24,8 +26,10 @@ sdist命令是最简单的命令，它用来创建一个发行树，运行一个
 分发的档案。使用它之前，必须传递一个附加的参数给setup，以提供版本号，如果不给它提供一个
 version值，那么它将使用version=0.0.0。
 
+```python
 	from setuptools import setup
 	setup(name='tools.name', version='0.1.1')
+```
 
 这个版本号在升级时十分有用，每当发行包时都将提升版本号，这样目标系统就知道它已经被修改了。
 

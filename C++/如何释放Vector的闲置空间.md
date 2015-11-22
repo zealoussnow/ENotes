@@ -2,6 +2,7 @@
 
 C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 
+```cpp
 	vector<int> v;
 	v.push_back(12); // capacity: 1
 	v.push_back(22);// capacity: 1 * 2 = 2
@@ -17,6 +18,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 	cout << v.capacity() << endl; // 15 <­­­ #2
 	v.reserve(0);
 	cout << v.capacity() << endl; // 15 <­­­ #3
+```
 
 由上面的代码可以看出，不论是删除vector中的元素(#1)、甚至clear整个容器的内容(#2)、或显式将capacity保留为0(#3)，都无法减小vector中闲置的空间。
 
@@ -24,6 +26,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 
 如下列代码:
 
+```cpp
 	vector<int> v2;
 	v2.push_back(12);
 	v2.push_back(28);
@@ -34,7 +37,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 	vector<int> v3(v2);
 	cout << v3.capacity() << endl; // 2  <­­ #1
 	cout << v3.size() << endl; // 2
-
+```
 
 如上所示，v3的capacity只是2(#2)，即v2中的元素个数。
 
@@ -42,6 +45,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 
 如下列代码：
 
+```cpp
 	vector<int> v2;
 	v2.push_back(12);
 	v2.push_back(28);
@@ -51,7 +55,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 	cout << v2.size() << endl; // 2
 	vector<int> (v2).swap(v2); // <­­ #1
 	cout << v2.capacity() << endl; // 2  <­­ #2
-
+```
 
 <font color="green">为什么可以减小v2的capacity？</font>
 
@@ -67,6 +71,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 
 同理，完全清除一个vector的所有存储：
 
+```cpp
 	vector<int> v2;
 	v2.push_back(12);
 	v2.push_back(28);
@@ -76,6 +81,7 @@ C++ STL容器vector对于容量的操作是只增不减，如下面的代码：
 	cout << v2.size() << endl; // 2
 	vector<int> ().swap(v2); // <­­ #1
 	cout << v2.capacity() << endl; // <­­ #2
+```
 
 * (#1)首先创建一个临时(空) 容器，然后与v2进行swap()
 

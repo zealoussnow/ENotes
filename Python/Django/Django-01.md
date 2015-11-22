@@ -20,11 +20,13 @@
 
 处理blog/views.py
 
-	增加视图处理方法：
+增加视图处理方法：
+
+```python
 	from django.http import HttpReponse
 	def index(req):
 		return HttpResponse('<h1>Helo,World!</h1>')
-
+```
 
 运行应用
 

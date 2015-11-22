@@ -4,9 +4,9 @@
 
 ### 一、 列表推导(List Comprehensions)
 
-	```python
+```python
 	[ i for i in range(10) if i % 2 == 0]
-	```
+```
 
 每当要对序列中的内容进行循环处理时，就应该尝试用List Comprehensions来代替它。
 
@@ -28,7 +28,7 @@
 
 如：
 	
-	```python
+```python
 	def fib():
 		a, b = 0, 1
 		while True:
@@ -36,7 +36,7 @@
 			a, b = b, a + b
 	f = fib
 	[f.next() for i in range(10)]
-	```
+```
 
 该函数将返回一个特殊的迭代器，也就是generator对象，它知道如何保存执行环境。对
 它的调用时不确定的，每次都将产生序列中的下一个元素。这种语法很简洁，算法的不确定
@@ -50,7 +50,7 @@ yield将变成一个表达式，而一个值可以通过一个send函数来传�
 
 如：
 
-	```python
+```python
 	def psychologist():
 		print 'Please input OK'
     	while True:
@@ -71,7 +71,7 @@ yield将变成一个表达式，而一个值可以通过一个send函数来传�
 	Don't be so negative
 	>>> f.send('bad,')
 	The answer is not ok
-	```
+```
 
 send的工作机制与next一样，但是yield将变成能够返回传入的值，
 因此这个函数可以根据客户端改变其行为，同时还添加了throw和
@@ -103,7 +103,7 @@ GeneratorExit，在这种情况下，生成器必须再次抛出GeneratorExit
 
 如：
 	
-	```python
+```python
 	import multitask
 	import time
 
@@ -120,7 +120,7 @@ GeneratorExit，在这种情况下，生成器必须再次抛出GeneratorExit
 	>>> multitask.add(coroutine_1())
 	>>> multitask.add(coroutine_2())
 	>>> multitask.run()
-	```
+```
 
 另一种协同程序的实现：greenlet
 
@@ -131,11 +131,11 @@ python为编写针对序列的简单生成器提供了一种快捷方式。可�
 
 如：
 
-	```python
+```python
 	iter = (x ** 2 for x in range(10) if x % 2 == 0)
 	for el in iter:
 		print el
-	```
+```
 
 #### 5. itertools模块
 

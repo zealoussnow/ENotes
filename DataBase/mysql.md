@@ -23,29 +23,37 @@
 
 * 创建数据库
 
+```sql
 	create database temp
 	
 	set names gbk  #设置字符集为gbk
+```
 
 * 创建表
 
+```sql
 	create table temp ... 
+```
 
 #### 查询
 
 * 查询表结构
-	
+
+```sql	
 	desc [TABLE_NAME];
 
 	show craete table [TABLE_NAME];
 
 	show full fields from [TABLE_NAME];
+```
 
 #### 连接数据库
 
 * mysql连接数据库
 
+```sql
 	mysql -uroot -pxxxx或者mysql -h192.xxx.xxx.xxx -uroot -pxxx
+```
 
 * 让mysql允许远程链接,修改库mysql中user表里的host项：
 
@@ -61,16 +69,21 @@
 	
 * 查询当前版本	
 
+```sql
 		SELECT VERSION();
-	
-* 查询当前时间	
-		
-		SELECT NOW();或SELECT CURRENT_TIME();
-	
-* 查询当前日期	
-		
-		SELECT DATE(NOW());	或者 SELECT CURRENT_DATE;
+```
 
+* 查询当前时间	
+
+```sql		
+		SELECT NOW();或SELECT CURRENT_TIME();
+```
+
+* 查询当前日期	
+
+```sql		
+		SELECT DATE(NOW());	或者 SELECT CURRENT_DATE;
+```
 
 ### 4. SQL语句分类
 
@@ -118,41 +131,58 @@
 		
 * 查询mysql服务启动时间
 
+```sql
 		show status like 'uptime'
+```
 
 * 查询执行查询操作的次数
 
+```sql
 		show status like 'com_select'
+```
 
 * 查询执行插入操作的次数
 
+```sql
 		show status like 'com_insert'
+```
 
 * 查询执行删除操作的次数
 
+```sql
 		show status like 'com_delete'
+```
 
 * 查询试图连接MySQL服务器的次数
 
+```sql
 		show status like 'connections'
+```
 
 * 查询慢查询的次数(默认是10s)
 
+```sql
 		show status like 'slow_queries'
+```
 
 * 查询和设置慢查询默认的时间
 
+```sql
 		show variables like 'long_query_time'
 		
 		set long_query_time = 1
+```
 
 ### 小技巧
 
 * 为了存储过程能够正常执行，我们需要把命令执行的结束符修改下，默认的为分号
 
+```sql
 		delimeter $$ #修改为两个$$
+```
 
 * 亚元表(dual)
 
+```sql
 		select rand_string from dual;
-		
+```	

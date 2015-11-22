@@ -39,6 +39,7 @@ C的线性化是C加上父类的线性化和父类列表的合并的总和。
 
 ### 四、描述符和属性
 
+```python
 	class MyClass(object):
     	__secret_value = 1
 
@@ -46,6 +47,7 @@ C的线性化是C加上父类的线性化和父类列表的合并的总和。
     	instance_of = MyClass()
     	# print instance_of.__secret_value
     	print instance_of._MyClass__secret_value
+```
 
 #### 1. 描述符
 
@@ -105,6 +107,7 @@ new-style类带来了一种能力，可以通过两个特殊的方法——\_\_n
 
 特殊方法\_\_new\_\_是一个元构造程序，每当一个对象必须被factory类实例化时就将调用它。
 
+```python
 	class Myclass(object):
     def __new__(cls):
         print '__new__ called'
@@ -117,6 +120,7 @@ new-style类带来了一种能力，可以通过两个特殊的方法——\_\_n
 	>>> instance = Myclass()
     __new__ called
     __init__ called
+```
 
 \_\_new\_\_方法必须返回一个类的实例，因此它可以在对象创建之前或之后修改类。这对于确保
 对象构造程序不会被设置成一个不希望的状态，或者添加一个不能被构造程序删除的初始化时有帮

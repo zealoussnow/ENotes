@@ -27,6 +27,7 @@ zc.buildout依赖于一个结构与ConfigParser模块兼容的配置文件，类
 最小的buildout配置文件中包含一个名为`[buildout]`的小节，其中有一个称作parts的变量。
 这个变量包含一个提供小节列表的多行值，如下所示：
 
+```ini
 	[buildout]
 	parts=
 		part1
@@ -35,6 +36,7 @@ zc.buildout依赖于一个结构与ConfigParser模块兼容的配置文件，类
 	recipe = my.recipe1
 	[part2]
 	recipe = my.recipe2
+```
 
 在parts中指定的每个小节至少有一个提供包名称的recipe值。这个包可以是任何python包，只要
 它定义一个zc.buildout入口点。
