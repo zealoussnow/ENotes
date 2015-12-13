@@ -16,3 +16,7 @@ REST是设计风格而不是标准。REST通常基于使用HTTP，URI，和XML�
 
 REST是含状态传输，应该注意区别应用的状态和连接协议的状态。HTTP连接是无状态的（也就是不记录每个连接的信息），
 而REST传输会包含应用的所有状态信息，因此可以大幅降低对HTTP连接的 重复请求 资源消耗。
+
+### Python资源
+
+[Writing Forwards Compatible Python Code](http://lucumr.pocoo.org/2011/1/22/forwards-compatible-python/)
