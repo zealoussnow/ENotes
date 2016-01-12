@@ -1,4 +1,14 @@
-### REST(Representational State Transfer)
+### [FastCGI/Fast Common Gateway Interface](https://zh.wikipedia.org/wiki/FastCGI)
+
+一种让交互程序与Web服务器通信的协议，是CGI的增强版本。它致力于减少网页服务器与CGI程序之间的互动开销，
+从而使服务器能处理更多的网页请求。
+
+实现：与为每个请求创建一个新的进程不同，FastCGI使用持续的进程处理一连串的请求，这些请求由FastCGI服务器
+管理，而不是web服务器。当进来一个请求时，web服务器把环境变量和这个页面请求通过一个socket比如FastCGI进程
+与web服务器(都位于本地）或者一个TCP connection（FastCGI进程在远端的server farm）传递给FastCGI进程。
+
+
+### [REST/Representational State Transfer](https://zh.wikipedia.org/wiki/REST)
 
 目前在三种主流的Web服务实现方案中，因为REST模式与复杂的SOAP和XML-RPC相比更加简洁，越来越多的web服务
 开始采用REST风格设计和实现。
