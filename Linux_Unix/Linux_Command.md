@@ -1,9 +1,9 @@
 # The Linux Command
 
-#### ifconfig - 
-	
+#### ifconfig -
+
 1.显示本地公网IP
-	
+
 	$ curl http://ifconfig.me
 	$ curl ifconfig.me
 	$ 124.207.226.122 [result]
@@ -14,11 +14,11 @@
 
 #### locate - find files by name
 2.使用locate命令高效查找文件
-	
+
 	$ locate -w "*.c"
 
 更新mlocate.db。通常系统会在固定时间自动更新这个文件，也可以使用updatedb命令手动进行更新。
-	
+
 	$ sudo updatedb
 
 The data base is /var/cache/locate/locatedb in Debian system and /var/lib/mlocate/mlocate.db 
